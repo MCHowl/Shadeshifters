@@ -6,7 +6,7 @@ public class ProjectileController : MonoBehaviour {
 
 	private float destroyTime;
 	private float aliveTime = 3;
-	private float speed = 5;
+	private float speed = 15;
 	private int damage = 10;
 
 	private Vector3 direction;
@@ -55,6 +55,10 @@ public class ProjectileController : MonoBehaviour {
 	public void SetVariables(bool newDark, Vector3 newDirection) {
 		direction += newDirection;
 		dark = newDark;
+
+		if (direction.x < 0) {
+			transform.localScale = new Vector3 (-1, 1, 1);
+		}
 
 		if (dark) {
 			spriteRenderer.sprite = sprite_dark;

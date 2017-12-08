@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+	private AudioSource projectileSound;
 	public GameObject projectile;
 	private Transform projectileSpawn;
 
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour {
 	public float resource_dark;
 
 	void Start() {
+		projectileSound = GetComponent<AudioSource>();
 		rb2d = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		projectileSpawn = GetComponentInChildren<Transform>();
@@ -52,6 +54,12 @@ public class PlayerController : MonoBehaviour {
 	void Update() {
 		if (grounded && Input.GetKeyDown(UP)) {
 			rb2d.AddForce(new Vector2(0, jumpMultiplier));
+		}
+
+		if (dark) {
+			spriteRenderer.sprite = sprite_dark;
+		} else {
+			spriteRenderer.sprite = sprite_light;
 		}
 	}
 		
@@ -78,11 +86,6 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetKeyDown(SHIFT)) {
 			dark = !dark;
-			if (dark) {
-				spriteRenderer.sprite = sprite_dark;
-			} else {
-				spriteRenderer.sprite = sprite_light;
-			}
 		} else if (Input.GetKeyDown(TRIGGER)) {
 			if (Time.time > nextFire) {
 				bool canFire = false;
@@ -96,11 +99,12 @@ public class PlayerController : MonoBehaviour {
 				}
 
 				if (canFire) {
-					Vector3 newDirection = new Vector3 (direction, 0, 0);
+					Vector3 newDirection = new Vector3 (direction * 0.5f, 0, 0);
 					GameObject newProjectile = Instantiate (projectile, projectileSpawn.position + newDirection, Quaternion.identity);
 					newProjectile.GetComponent<ProjectileController> ().SetVariables (dark, newDirection);
 
 					nextFire = Time.time + nextFire_delay;
+					projectileSound.Play();
 				}
 			}
 		}

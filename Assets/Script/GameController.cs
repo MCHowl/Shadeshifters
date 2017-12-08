@@ -54,9 +54,9 @@ public class GameController : MonoBehaviour {
 		if (player1 == null || player2 == null) {
 			canvas.enabled = true;
 			if (player1 == null) {
-				text_gameOver.text = "Player 2 Wins";
+				text_gameOver.text = "ShiftBot Wins";
 			} else {
-				text_gameOver.text = "Player 1 Wins";
+				text_gameOver.text = "Mr Shifty Wins";
 			}
 		}
 	}
