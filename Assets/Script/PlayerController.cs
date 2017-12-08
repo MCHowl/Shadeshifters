@@ -27,9 +27,10 @@ public class PlayerController : MonoBehaviour {
 	private float resource_cost = 0.1f;
 	private float resource_max = 1;
 	private float resource_min = 0;
-	private float speed = 250;
+	private float speed = 5;
+    private float jumpMultiplier = 60;
 
-	private int trigger = 0;
+    private int trigger = 0;
 	private int trigger_max = 1;
 	private float nextFire;
 	private float nextFire_delay = 0.5f;
@@ -53,19 +54,24 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown(UP)) {
-			rb2d.AddForce(new Vector2 (0, 1) * speed);
-		} else if (Input.GetKeyDown(LEFT)) {
+            rb2d.velocity = Vector2.Scale(rb2d.velocity, (new Vector2(1, 0)));
+            rb2d.AddForce(new Vector2(0, 1) * speed * jumpMultiplier);
+        }
+        if (Input.GetKey(LEFT)) {
 			rb2d.AddForce(new Vector2 (-1, 0) * speed);
 			direction = -1;
-		} else if (Input.GetKeyDown(RIGHT)) {
+		}
+        if (Input.GetKey(RIGHT)) {
 			rb2d.AddForce(new Vector2 (1, 0) * speed);
 			direction = 1;
-		} else if (Input.GetKeyDown(SHIFT)) {
+		}
+        if (Input.GetKeyDown(SHIFT)) {
 			trigger++;
 			if (trigger > trigger_max) {
 				trigger = 0;
 			}
-		} else if (Input.GetKeyDown(TRIGGER)) {
+		}
+        if (Input.GetKeyDown(TRIGGER)) {
 			if (trigger == 0) {
 				dark = !dark;
 				if (dark) {
