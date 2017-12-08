@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour {
 	private float resource_max = 1;
 	private float resource_min = 0;
 	private float speed = 5;
-    private float jumpMultiplier = 300;
+    public float jumpMultiplier = 300;
 
 	private float nextFire;
 	private float nextFire_delay = 0.5f;
@@ -50,7 +50,16 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update() {
-		if (grounded && Input.GetKeyDown(UP)) {
+        if (dark)
+        {
+            spriteRenderer.sprite = sprite_dark;
+        }
+        else
+        {
+            spriteRenderer.sprite = sprite_light;
+        }
+
+        if (grounded && Input.GetKeyDown(UP)) {
 			rb2d.AddForce(new Vector2(0, jumpMultiplier));
 		}
 	}
