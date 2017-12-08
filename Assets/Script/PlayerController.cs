@@ -26,21 +26,19 @@ public class PlayerController : MonoBehaviour {
 
 	private int direction = 1; // -1 is left, 1 is right
 
-	private int health = 100;
-	private float resource_dark;
 	private float resource_cost = 0.1f;
 	private float resource_max = 1;
 	private float resource_min = 0;
 	private float speed = 5;
     private float jumpMultiplier = 300;
 
-    private int trigger = 0;
-	private int trigger_max = 1;
 	private float nextFire;
 	private float nextFire_delay = 0.5f;
 
 	[HideInInspector]
 	public bool dark = true;
+	public int health = 100;
+	public float resource_dark;
 
 	void Start() {
 		rb2d = GetComponent<Rigidbody2D>();
@@ -79,37 +77,30 @@ public class PlayerController : MonoBehaviour {
 		}
 
         if (Input.GetKeyDown(SHIFT)) {
-			trigger++;
-			if (trigger > trigger_max) {
-				trigger = 0;
+			dark = !dark;
+			if (dark) {
+				spriteRenderer.sprite = sprite_dark;
+			} else {
+				spriteRenderer.sprite = sprite_light;
 			}
 		} else if (Input.GetKeyDown(TRIGGER)) {
-			if (trigger == 0) {
-				dark = !dark;
-				if (dark) {
-					spriteRenderer.sprite = sprite_dark;
-				} else {
-					spriteRenderer.sprite = sprite_light;
+			if (Time.time > nextFire) {
+				bool canFire = false;
+
+				if (dark && resource_dark > resource_min) {
+					resource_dark -= resource_cost;
+					canFire = true;
+				} else if (!dark && resource_dark < resource_max) {
+					resource_dark += resource_cost;
+					canFire = true;
 				}
-			} else if (trigger == 1) {
-				if (Time.time > nextFire) {
-					bool canFire = false;
 
-					if (dark && resource_dark > resource_min) {
-						resource_dark -= resource_cost;
-						canFire = true;
-					} else if (!dark && resource_dark < resource_max) {
-						resource_dark += resource_cost;
-						canFire = true;
-					}
+				if (canFire) {
+					Vector3 newDirection = new Vector3 (direction, 0, 0);
+					GameObject newProjectile = Instantiate (projectile, projectileSpawn.position + newDirection, Quaternion.identity);
+					newProjectile.GetComponent<ProjectileController> ().SetVariables (dark, newDirection);
 
-					if (canFire) {
-						Vector3 newDirection = new Vector3 (direction, 0, 0);
-						GameObject newProjectile = Instantiate (projectile, projectileSpawn.position + newDirection, Quaternion.identity);
-						newProjectile.GetComponent<ProjectileController> ().SetVariables (dark, newDirection);
-
-						nextFire = Time.time + nextFire_delay;
-					}
+					nextFire = Time.time + nextFire_delay;
 				}
 			}
 		}
