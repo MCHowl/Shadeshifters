@@ -7,8 +7,12 @@ public class PlayerController : MonoBehaviour {
 	public GameObject projectile;
 	private Transform projectileSpawn;
 
+	public Transform groundCheck;
+	public LayerMask whatIsGround;
+	private bool grounded = false;
+	private float groundRadius = 0.2f;
+
 	private Rigidbody2D rb2d;
-	private BoxCollider2D boxCollider;
 
 	public KeyCode UP;
 	public KeyCode LEFT;
@@ -28,7 +32,7 @@ public class PlayerController : MonoBehaviour {
 	private float resource_max = 1;
 	private float resource_min = 0;
 	private float speed = 5;
-    private float jumpMultiplier = 60;
+    private float jumpMultiplier = 300;
 
     private int trigger = 0;
 	private int trigger_max = 1;
@@ -36,42 +40,50 @@ public class PlayerController : MonoBehaviour {
 	private float nextFire_delay = 0.5f;
 
 	[HideInInspector]
-	public bool dark = false;
+	public bool dark = true;
 
 	void Start() {
 		rb2d = GetComponent<Rigidbody2D>();
-		boxCollider = GetComponent<BoxCollider2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		projectileSpawn = GetComponentInChildren<Transform>();
 
 		resource_dark = (resource_max + resource_min) / 2;
 		nextFire = Time.time;
 	}
+
+	void Update() {
+		if (grounded && Input.GetKeyDown(UP)) {
+			rb2d.AddForce(new Vector2(0, jumpMultiplier));
+		}
+	}
 		
 	void FixedUpdate() {
+		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
+
 		if (health <= 0) {
 			Destroy (this.gameObject);
 		}
-
-		if (Input.GetKeyDown(UP)) {
-            rb2d.velocity = Vector2.Scale(rb2d.velocity, (new Vector2(1, 0)));
-            rb2d.AddForce(new Vector2(0, 1) * speed * jumpMultiplier);
-        }
+			
         if (Input.GetKey(LEFT)) {
-			rb2d.AddForce(new Vector2 (-1, 0) * speed);
-			direction = -1;
+			rb2d.velocity = new Vector2(-speed, rb2d.velocity.y);
+			if (direction != -1) {
+				direction = -1;
+				Flip();
+			}
+		} else if (Input.GetKey(RIGHT)) {
+			rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
+			if (direction != 1) {
+				direction = 1;
+				Flip();
+			}
 		}
-        if (Input.GetKey(RIGHT)) {
-			rb2d.AddForce(new Vector2 (1, 0) * speed);
-			direction = 1;
-		}
+
         if (Input.GetKeyDown(SHIFT)) {
 			trigger++;
 			if (trigger > trigger_max) {
 				trigger = 0;
 			}
-		}
-        if (Input.GetKeyDown(TRIGGER)) {
+		} else if (Input.GetKeyDown(TRIGGER)) {
 			if (trigger == 0) {
 				dark = !dark;
 				if (dark) {
@@ -101,6 +113,12 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	void Flip() {
+		Vector3 scale = transform.localScale;
+		scale.x *= -1;
+		transform.localScale = scale;
 	}
 
 	public void RecieveDamage(int damage) {

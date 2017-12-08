@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shadeshifters", "Assembly-CSharp.csproj", "{8D0353DD-F918-761A-C14C-E30530419368}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shadeshifters", "Assembly-CSharp-firstpass.csproj", "{92809F70-3132-FE65-24A2-14D4873BA6C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shadeshifters", "Assembly-CSharp-Editor-firstpass.csproj", "{08622B12-AE75-E434-19E0-8B73245CE5E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{8D0353DD-F918-761A-C14C-E30530419368}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D0353DD-F918-761A-C14C-E30530419368}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D0353DD-F918-761A-C14C-E30530419368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92809F70-3132-FE65-24A2-14D4873BA6C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92809F70-3132-FE65-24A2-14D4873BA6C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92809F70-3132-FE65-24A2-14D4873BA6C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92809F70-3132-FE65-24A2-14D4873BA6C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08622B12-AE75-E434-19E0-8B73245CE5E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08622B12-AE75-E434-19E0-8B73245CE5E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08622B12-AE75-E434-19E0-8B73245CE5E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08622B12-AE75-E434-19E0-8B73245CE5E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

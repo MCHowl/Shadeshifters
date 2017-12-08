@@ -11,7 +11,6 @@ public class MenuController : MonoBehaviour {
 	private GameObject creditsCanvas;
 
 	void Start () {
-		menuCanvas = GameObject.Find ("Main Canvas");
 		instructionsCanvas = GameObject.Find ("Instructions Canvas");
 		creditsCanvas = GameObject.Find ("Credits Canvas");
 
