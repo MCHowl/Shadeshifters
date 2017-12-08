@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProjectileController : MonoBehaviour {
 
 	private float destroyTime;
-	private float aliveTime = 5;
+	private float aliveTime = 3;
 	private float speed = 5;
 
 	private Vector3 direction;
@@ -13,6 +13,9 @@ public class ProjectileController : MonoBehaviour {
 	public Sprite sprite_dark;
 	public Sprite sprite_light;
 	private SpriteRenderer spriteRenderer;
+
+	[HideInInspector]
+	public bool dark = false;
 
 	void Awake() {
 		spriteRenderer = GetComponent<SpriteRenderer>();
@@ -34,12 +37,22 @@ public class ProjectileController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {
-		Debug.Log ("hit");
-		Destroy(this.gameObject);
+		if (other.gameObject.CompareTag ("Projectile")) {
+			if (other.gameObject.GetComponent<ProjectileController> ().dark != dark) {
+				Destroy (this.gameObject);
+			}
+		} else if (other.gameObject.CompareTag ("Player")) {
+			if (other.gameObject.GetComponent<PlayerController> ().dark != dark) {
+				Destroy (this.gameObject);
+			}
+		} else {
+			Destroy (this.gameObject);
+		}
 	}
 
-	public void SetVariables(bool dark, Vector3 newDirection) {
+	public void SetVariables(bool newDark, Vector3 newDirection) {
 		direction += newDirection;
+		dark = newDark;
 
 		if (dark) {
 			spriteRenderer.sprite = sprite_dark;
