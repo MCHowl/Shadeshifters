@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour {
 	private int direction = 1; // -1 is left, 1 is right
 
 	private int health = 100;
-	private int damage = 10;
 	private float resource_dark;
 	private float resource_cost = 0.1f;
 	private float resource_max = 1;
@@ -98,11 +97,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void onCollisionEnter2D (Collider2D other) {
-		if (other.gameObject.CompareTag("Projectile")) {
-			if (other.gameObject.GetComponent<ProjectileController> ().dark != dark) {
-				health -= damage;
-			}
-		}
+	public void RecieveDamage(int damage) {
+		health -= damage;
 	}
 }

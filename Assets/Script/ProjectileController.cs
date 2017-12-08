@@ -7,6 +7,7 @@ public class ProjectileController : MonoBehaviour {
 	private float destroyTime;
 	private float aliveTime = 3;
 	private float speed = 5;
+	private int damage = 10;
 
 	private Vector3 direction;
 
@@ -43,6 +44,7 @@ public class ProjectileController : MonoBehaviour {
 			}
 		} else if (other.gameObject.CompareTag ("Player")) {
 			if (other.gameObject.GetComponent<PlayerController> ().dark != dark) {
+				other.gameObject.GetComponent<PlayerController> ().RecieveDamage (damage);
 				Destroy (this.gameObject);
 			}
 		} else {
