@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: ffb725791ff2095498f26db8d858fa4f
+timeCreated: 1512748479
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Swistblnk Banthers
+  fontNames:
+  - Swistblnk Banthers
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
