@@ -199,6 +199,11 @@ Prefab:
       propertyPath: m_UsedByEffector
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 95920679333629790, guid: 160db713013756f4c94450d66608c1ca,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 2176fc843272e94499a1a9df3c98145c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 160db713013756f4c94450d66608c1ca, type: 2}
   m_IsPrefabParent: 0
@@ -2097,7 +2102,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.50735295, g: 0.50735295, b: 0.50735295, a: 0}
+  m_BackGroundColor: {r: 0.6784314, g: 0.6392157, b: 0.4392157, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
