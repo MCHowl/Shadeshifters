@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7d7853b43aa45fd4fb5039fb57914149
-timeCreated: 1512736109
+timeCreated: 1512784329
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -16,6 +16,14 @@ TextureImporter:
     21300018: Mr Shifty_9
     21300020: Mr Shifty_10
     21300022: Mr Shifty_11
+    21300024: Mr Shifty_12
+    21300026: Mr Shifty_13
+    21300028: Mr Shifty_14
+    21300030: Mr Shifty_15
+    21300032: Mr Shifty_16
+    21300034: Mr Shifty_17
+    21300036: Mr Shifty_18
+    21300038: Mr Shifty_19
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -132,8 +140,8 @@ TextureImporter:
       name: Mr Shifty_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 540
+        x: 540
+        y: 810
         width: 180
         height: 270
       alignment: 0
@@ -146,8 +154,8 @@ TextureImporter:
       name: Mr Shifty_4
       rect:
         serializedVersion: 2
-        x: 180
-        y: 540
+        x: 720
+        y: 810
         width: 180
         height: 270
       alignment: 0
@@ -160,7 +168,7 @@ TextureImporter:
       name: Mr Shifty_5
       rect:
         serializedVersion: 2
-        x: 360
+        x: 0
         y: 540
         width: 180
         height: 270
@@ -174,8 +182,8 @@ TextureImporter:
       name: Mr Shifty_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 270
+        x: 180
+        y: 540
         width: 180
         height: 270
       alignment: 0
@@ -188,6 +196,62 @@ TextureImporter:
       name: Mr Shifty_7
       rect:
         serializedVersion: 2
+        x: 360
+        y: 540
+        width: 180
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mr Shifty_8
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 540
+        width: 180
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mr Shifty_9
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 540
+        width: 180
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mr Shifty_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 270
+        width: 180
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mr Shifty_11
+      rect:
+        serializedVersion: 2
         x: 180
         y: 270
         width: 180
@@ -199,7 +263,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Mr Shifty_8
+      name: Mr Shifty_12
       rect:
         serializedVersion: 2
         x: 360
@@ -213,7 +277,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Mr Shifty_9
+      name: Mr Shifty_13
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 270
+        width: 180
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mr Shifty_14
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 270
+        width: 180
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mr Shifty_15
       rect:
         serializedVersion: 2
         x: 0
@@ -227,7 +319,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Mr Shifty_10
+      name: Mr Shifty_16
       rect:
         serializedVersion: 2
         x: 180
@@ -241,10 +333,38 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Mr Shifty_11
+      name: Mr Shifty_17
       rect:
         serializedVersion: 2
         x: 360
+        y: 0
+        width: 180
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mr Shifty_18
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 0
+        width: 180
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mr Shifty_19
+      rect:
+        serializedVersion: 2
+        x: 720
         y: 0
         width: 180
         height: 270

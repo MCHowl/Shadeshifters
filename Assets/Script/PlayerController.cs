@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+	private Animator anim;
 	private AudioSource projectileSound;
 	public GameObject projectile;
 	private Transform projectileSpawn;
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour {
 	public float resource_dark;
 
 	void Start() {
+		anim = GetComponent<Animator>();
 		projectileSound = GetComponent<AudioSource>();
 		rb2d = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
@@ -70,22 +72,27 @@ public class PlayerController : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 			
-        if (Input.GetKey(LEFT)) {
-			rb2d.velocity = new Vector2(-speed, rb2d.velocity.y);
+		if (Input.GetKey (LEFT)) {
+			anim.SetBool ("Move", true);
+			rb2d.velocity = new Vector2 (-speed, rb2d.velocity.y);
 			if (direction != -1) {
 				direction = -1;
-				Flip();
+				Flip ();
 			}
-		} else if (Input.GetKey(RIGHT)) {
-			rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
+		} else if (Input.GetKey (RIGHT)) {
+			anim.SetBool ("Move", true);
+			rb2d.velocity = new Vector2 (speed, rb2d.velocity.y);
 			if (direction != 1) {
 				direction = 1;
-				Flip();
+				Flip ();
 			}
+		} else {
+			anim.SetBool ("Move", false);
 		}
 
         if (Input.GetKeyDown(SHIFT)) {
 			dark = !dark;
+			anim.SetTrigger ("Swap");
 		} else if (Input.GetKeyDown(TRIGGER)) {
 			if (Time.time > nextFire) {
 				bool canFire = false;
