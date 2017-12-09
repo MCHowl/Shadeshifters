@@ -60,8 +60,10 @@ public class PlayerController : MonoBehaviour {
 
 		if (dark) {
 			spriteRenderer.sprite = sprite_dark;
+			anim.SetBool ("Dark", true);
 		} else {
 			spriteRenderer.sprite = sprite_light;
+			anim.SetBool ("Dark", false);
 		}
 	}
 		
@@ -92,7 +94,6 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetKeyDown(SHIFT)) {
 			dark = !dark;
-			anim.SetTrigger ("Swap");
 		} else if (Input.GetKeyDown(TRIGGER)) {
 			if (Time.time > nextFire) {
 				bool canFire = false;

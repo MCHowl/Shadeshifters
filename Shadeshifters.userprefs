@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\PlayerController.cs">
     <Files>
-      <File FileName="Assets\Script\PlayerController.cs" Line="91" Column="4" />
+      <File FileName="Assets\Script\PlayerController.cs" Line="64" Column="10" />
       <File FileName="Assets\Script\ProjectileController.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\GameController.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\ButtonController.cs" Line="1" Column="1" />
@@ -11,7 +11,9 @@
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\mad_d\Documents\[NUS] Miscellaneous\GDG\Shadeshifters\Assets\Script\PlayerController.cs" line="55" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
